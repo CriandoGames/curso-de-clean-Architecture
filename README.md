@@ -5,7 +5,7 @@ A Clean Architecture foi criada por Robert C. Martin e promovida em seu livro Cl
 Um objetivo importante da Clean Architecture é fornecer aos desenvolvedores uma maneira de organizar o código de forma que encapsule a lógica de negócios, mas mantenha-o separado do mecanismo de entrega.
 
 ## Contribua com esse Projeto <3
-<a href='https://github.com/CriandoGames/curso-de-clean-Architecture/fork' target='_blank'><img height='250' style='border:0px;height:36px;' src='https://miro.medium.com/max/720/0*iU9Ks05_GTtGh6zV.webp' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+<a href='https://github.com/CriandoGames/curso-de-clean-Architecture/fork' target='_blank'><img src='https://miro.medium.com/max/720/0*iU9Ks05_GTtGh6zV.webp' /></a>
 
 <br />
 
