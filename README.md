@@ -1,16 +1,25 @@
 # curso_clear_arch
 
-A new Flutter project.
+A Clean Architecture foi criada por Robert C. Martin e promovida em seu livro Clean Architecture: A Craftsman’s Guide to Software Structure. Assim como outras filosofias de design de software, a Clean Architecture tenta fornecer uma metodologia a ser usada na codificação, a fim de facilitar o desenvolvimento códigos, permitir uma melhor manutenção, atualização e menos dependências.
 
-## Getting Started
+Um objetivo importante da Clean Architecture é fornecer aos desenvolvedores uma maneira de organizar o código de forma que encapsule a lógica de negócios, mas mantenha-o separado do mecanismo de entrega.
 
-This project is a starting point for a Flutter application.
+## Contribua com esse Projeto <3
+<a href='https://github.com/CriandoGames/curso-de-clean-Architecture/fork' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://miro.medium.com/max/720/0*iU9Ks05_GTtGh6zV.webp' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
 
-A few resources to get you started if this is your first Flutter project:
+<br />
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+> ## Bibliotecas e Ferramentas
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+* all_validations_br: ^3.0.0
+* uno: ^1.0.1+5
+* flutter_test
+* auto_injector: ^1.0.1
+* Flutter
+* Dart
+
+
+Essa Aplicação faz parte do treinamento desenvolvido por Carlos Castro.
+
+O objetivo do treinamento é mostrar como criar uma Aplicação com uma arquitetura bem definida e desacoplada, utilizando  testes , Clean Architecture para fazer a distribuição de responsabilidades em camadas, sempre seguindo os princípios do SOLID ou tentando sempre que possível, aplicando Design Patterns para resolver alguns problemas comuns.
+<br /><br />
