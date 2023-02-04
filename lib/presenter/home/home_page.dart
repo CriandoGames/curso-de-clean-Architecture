@@ -27,21 +27,18 @@ class _HomePageState extends State<HomePage> {
             valueListenable: widget.controller,
             builder: (context, state, _) {
               if (state is PhaseInitial) {
-                return BodyWidget(widget: widget);
-
                 //inicial
+                return BodyWidget(widget: widget);
               } else if (state is PhaseLoading) {
                 return const CircularProgressIndicator();
-
-                //sucess
               } else if (state is PhaseSuccess) {
+                //sucess
                 return BodySucess(
                   widget: widget,
                   state: state,
                 );
-
-                //fail
               } else if (state is PhaseFailure) {
+                //fail
                 return BodyFailure(
                   widget: widget,
                   state: state,

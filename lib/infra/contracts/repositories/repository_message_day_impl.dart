@@ -3,6 +3,7 @@ import 'package:curso_clear_arch/infra/data/datasource_adviceslip.dart';
 
 import '../../../domain/contract/repositories/repository_message_day.dart';
 import '../../../domain/error/domain_erros.dart';
+import '../../data/dto/message_dto.dart';
 
 class RepositoryMessageDayImpl implements RepositoryMessageDay {
   final DatasourceAdviceslip _datasource;
@@ -12,15 +13,17 @@ class RepositoryMessageDayImpl implements RepositoryMessageDay {
 
   @override
   Future<MessageEntity> call() async {
-    
-      final response = await _datasource.getAdvice();
+    final response = await _datasource.getAdvice();
 
-      if (response.statusCode == 200) {
-        return MessageEntity.fromMap(response.data);
-      } else {
-        throw ServerError();
-     
-   
-  }
+    if (response.statusCode == 200) {
+      try {
+        return MessageDTO.fromMap(response.data).toEntity();
+      } catch (e) {
+        throw RepositoryError(
+            message: "Repository is not converted to entity $e");
+      }
+    } else {
+      throw ServerError();
+    }
   }
 }

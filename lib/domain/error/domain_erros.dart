@@ -23,3 +23,9 @@ class ServerError implements Errors {
 
   ServerError({this.message = 'Server error'});
 }
+
+class RepositoryError implements Errors {
+  final String message;
+
+  RepositoryError({this.message = 'Repository is not converted to entity'});
+}
