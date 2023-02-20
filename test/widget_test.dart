@@ -26,7 +26,7 @@ main() {
   test('should be return message of service', () async {
     try {
       final result = await useCase();
-      expect(result.msg, isNotEmpty);
+      expect(result.right, isNotEmpty);
     } on ErrorIdEmpty {
       throwsA(isA<ErrorIdEmpty>());
     } on ErrorMessageEmpty {

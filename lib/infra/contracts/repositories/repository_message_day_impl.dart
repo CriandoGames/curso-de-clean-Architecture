@@ -1,5 +1,7 @@
 import 'package:curso_clear_arch/domain/entities/message_entity.dart';
+import 'package:curso_clear_arch/domain/error/erros.dart';
 import 'package:curso_clear_arch/infra/data/datasource_adviceslip.dart';
+import 'package:either_dart/either.dart';
 
 import '../../../domain/contract/repositories/repository_message_day.dart';
 import '../../../domain/error/domain_erros.dart';
@@ -12,18 +14,19 @@ class RepositoryMessageDayImpl implements RepositoryMessageDay {
       : _datasource = datasource;
 
   @override
-  Future<MessageEntity> call() async {
+  Future<Either<Errors, MessageEntity>> call() async {
     final response = await _datasource.getAdvice();
 
-    if (response.statusCode == 200) {
-      try {
-        return MessageDTO.fromMap(response.data).toEntity();
-      } catch (e) {
-        throw RepositoryError(
-            message: "Repository is not converted to entity $e");
+    if (response.isRight) {
+      if (response.right.statusCode == 200) {
+        try {
+          return Right(MessageDTO.fromMap(response.right.data).toEntity());
+        } on Exception {
+          return Left(ErrorConvertingMapInObject());
+        }
       }
-    } else {
-      throw ServerError();
     }
+
+    return Left(ServerError());
   }
 }

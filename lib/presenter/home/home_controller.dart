@@ -12,18 +12,16 @@ class HomeController extends ValueNotifier<PhaseState> {
         super(PhaseInitial());
 
   Future<void> getAdvice() async {
-    try {
-      value = PhaseLoading();
-      final message = await _repositoryMessageDay();
-      value = PhaseSuccess(message: message);
-    } catch (e) {
-      value = PhaseFailure(error: e.toString());
+    value = PhaseLoading();
+    final result = await _repositoryMessageDay();
+    if (result.isRight) {
+      value = PhaseSuccess(message: result.right);
+    } else {
+      value = PhaseFailure(error: result.left.toString());
     }
   }
 
   void reset() {
     value = PhaseInitial();
   }
-
-
 }

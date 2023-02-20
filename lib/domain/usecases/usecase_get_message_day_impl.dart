@@ -1,4 +1,6 @@
 import 'package:curso_clear_arch/domain/error/domain_erros.dart';
+import 'package:curso_clear_arch/domain/error/erros.dart';
+import 'package:either_dart/either.dart';
 
 import '../contract/repositories/repository_message_day.dart';
 import '../entities/message_entity.dart';
@@ -11,17 +13,9 @@ class UseCaseGetMessageDayImpl implements UseCaseGetMessageDay {
       : _repository = repository;
 
   @override
-  Future<MessageEntity> call() async {
-    try {
-      return await _repository();
-    } on ErrorIdEmpty {
-      rethrow;
-    } on ErrorMessageEmpty {
-      rethrow;
-    } on ErrorConvertingMapInObject {
-      rethrow;
-    } catch (e) {
-      throw Exception(e);
-    }
+  Future<Either<Errors,MessageEntity>> call() async {
+    final result = _repository();
+
+    return result;
   }
 }

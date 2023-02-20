@@ -10,19 +10,39 @@ import 'package:uno/uno.dart';
 import '../../domain/contract/gateways/http_service.dart';
 
 final autoInjector = AutoInjector();
-
+/// Register a instance.
 abstract class AutoContainer {
   static void setup() {
-    /// Register a instance.
+    
     /// A concrete object (Not a function)
     autoInjector.addInstance<Uno>(Uno());
-
+    
+    /// A function that returns a concrete object
     autoInjector.addLazySingleton<HttpService>(HttpServiceUno.new);
 
-    autoInjector.addSingleton<DatasourceAdviceslip>(DatasourceAdviceslipImpl.new);
+    autoInjector
+        .addSingleton<DatasourceAdviceslip>(DatasourceAdviceslipImpl.new);
 
     autoInjector.add<RepositoryMessageDay>(RepositoryMessageDayImpl.new);
 
     autoInjector.add<HomeController>(HomeController.new);
+
+
+// podemos instanciar por modulo tambem. exemplo abaixo
+
+    /*AutoInjector(
+        tag: 'Main',
+        on: (injector) {
+          injector.addInstance<Uno>(Uno());
+
+          injector.addLazySingleton<HttpService>(HttpServiceUno.new);
+
+          injector
+              .addSingleton<DatasourceAdviceslip>(DatasourceAdviceslipImpl.new);
+
+          injector.add<RepositoryMessageDay>(RepositoryMessageDayImpl.new);
+
+          injector.add<HomeController>(HomeController.new);
+        });*/
   }
 }
