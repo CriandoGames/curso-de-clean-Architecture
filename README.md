@@ -12,7 +12,7 @@ Um objetivo importante da Clean Architecture é fornecer aos desenvolvedores uma
 > ## Bibliotecas e Ferramentas
 
 * all_validations_br: ^3.0.0
-* uno: ^1.0.1+5
+* Get - Apenas a lib GetConnect
 * flutter_test
 * auto_injector: ^1.0.1
 * Flutter
